@@ -60,6 +60,7 @@ public class MoneyTracking extends Application {
     TableColumn<IOList, String> dateCol = new TableColumn<>("Date");
     TableColumn<IOList, String> cateCol = new TableColumn<>("Category");
     TableColumn<IOList, String> amountCol = new TableColumn<>("Amount");
+    TableColumn<IOList, String> noteCol = new TableColumn<>("Note");
     // the button part is on the left
     VBox left = new VBox(S_SPACE);
 
@@ -166,7 +167,7 @@ public class MoneyTracking extends Application {
         // importBtn for importing an existing file to the current file
         importBtn.setOnAction(e -> {
             try {
-                menuAction.importBtnAction(balance, balanceTf, yearTf, monthTf, dayTf, right, dateCol, cateCol, amountCol, lists, errorLine);
+                menuAction.importBtnAction(balance, balanceTf, yearTf, monthTf, dayTf, right, dateCol, cateCol, amountCol, noteCol, lists, errorLine);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MoneyTracking.class.getName())
                         .log(Level.SEVERE, null, ex);
@@ -178,7 +179,7 @@ public class MoneyTracking extends Application {
         addBtn.setOnAction(e -> {
             try {
                 listAction.addBtnAction(incomeCombo, expenseCombo, inExBtn, balance, balanceTf, yearTf,
-                        monthTf, dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol,
+                        monthTf, dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol, noteCol, 
                         lists, errorLine);
             } catch (InvalidInfoException ex) {
                 Logger.getLogger(MoneyTracking.class.getName())
@@ -204,9 +205,9 @@ public class MoneyTracking extends Application {
             }
         });
 
-        Scene scene = new Scene(all, 720, 500);
-        stage.setMaxWidth(720);
-        stage.setTitle("Money Tracking by PK");
+        Scene scene = new Scene(all, 820, 500);
+        stage.setMaxWidth(820);
+        stage.setTitle("Money Tracking Program by PK");
         stage.setScene(scene);
         stage.show();
     }
@@ -294,15 +295,17 @@ public class MoneyTracking extends Application {
 
         all.getChildren().addAll(left, right);
 
-        right.setMinWidth(400);
-        right.setMaxWidth(400);
+        right.setMinWidth(500);
+        right.setMaxWidth(500);
         dateCol.setMaxWidth(99);
         dateCol.setMinWidth(99);
         cateCol.setMaxWidth(200);
         cateCol.setMinWidth(200);
-        amountCol.setMaxWidth(99);
-        amountCol.setMinWidth(99);
-        right.getColumns().addAll(dateCol, cateCol, amountCol);
+        amountCol.setMaxWidth(70);
+        amountCol.setMinWidth(70);
+        noteCol.setMaxWidth(129);
+        noteCol.setMinWidth(129);
+        right.getColumns().addAll(dateCol, cateCol, amountCol, noteCol);
 
         left.setAlignment(Pos.CENTER);
         left.getChildren().addAll(menuLine, sortedLine, balanceLine, dateLine, selectionLine,

@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/MoneyTracking.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/ValidateInfo.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/ListAction.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/TextFileAction.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/nbproject/build-impl.xml</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/InvalidInfoException.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/IncomeList.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/BinaryFileBalance.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/IOList.java</file>
-            <file>file:/Users/pikul/Desktop/GitHub/MoneyTracking/src/app/MoneyTracking/ExpenseList.java</file>
+            <file>file:/Users/pikul/github/MoneyTracking/src/menu/ListAction.java</file>
+            <file>file:/Users/pikul/github/MoneyTracking/src/files/TextFileAction.java</file>
+            <file>file:/Users/pikul/github/MoneyTracking/src/obj/IOList.java</file>
         </group>
     </open-files>
 </project-private>

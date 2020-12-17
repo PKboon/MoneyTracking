@@ -65,7 +65,7 @@ public class TextFileAction {
      */
     public void importBtnAction(BinaryFileBalance balance, TextField balanceTf,
             TextField yearTf, TextField monthTf, TextField dayTf,
-            TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol,
+            TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol, TableColumn noteCol,
             ArrayList<IOList> lists, Label errorLine)
             throws FileNotFoundException {
 
@@ -81,7 +81,8 @@ public class TextFileAction {
                     String cate = read.next();
                     String cost = read.next();
                     String note = read.next();
-                    if (right.getItems().isEmpty()) {
+                    if (note.contains("NO")) {
+                        note = "";
                     }
 
                     if (cost.charAt(0) == '-') {
@@ -97,6 +98,7 @@ public class TextFileAction {
                 dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
                 cateCol.setCellValueFactory(new PropertyValueFactory<>("category"));
                 amountCol.setCellValueFactory(new PropertyValueFactory<>("cost"));
+                noteCol.setCellValueFactory(new PropertyValueFactory<>("note"));
             }
         } else {
             errorLine.setText("File not found.");
@@ -130,6 +132,7 @@ public class TextFileAction {
         noteTf.setText("");
         // deselect the inExBtn
         inExBtn.setSelected(false);
+        inExBtn.setText("Income");
         incomeCombo.getSelectionModel().selectFirst();
         // clear the ArrayList
         lists.clear();
@@ -164,6 +167,10 @@ public class TextFileAction {
                     String cate = read.next();
                     String cost = read.next();
                     String note = read.next();
+                    if (note.contains("NO")) {
+                        note = "";
+                    }
+                    
                     if (cost.charAt(0) == '-') {
                         cost = cost.substring(1);
                         lists.add(new ExpenseList(date, cate, cost, note));
@@ -203,10 +210,16 @@ public class TextFileAction {
                 ArrayList<IOList> sortedLists = (ArrayList<IOList>) lists.clone();
                 Collections.sort(sortedLists);
                 for (IOList l : sortedLists) {
+                    if(l.getNote().isEmpty()){
+                        l.setNote("[NO_NOTE]");
+                    }
                     output.println(l.toFile());
                 }
             } else {
                 for (IOList l : lists) {
+                    if(l.getNote().isEmpty()){
+                        l.setNote("[NO_NOTE]");
+                    }
                     output.println(l.toFile());
                 }
             }

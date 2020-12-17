@@ -41,7 +41,7 @@ public abstract class IOList
             setDate("");
             setCategory("");
             setCost("");
-            setNote("[NO_NOTE]");
+            setNote("");
         } catch (InvalidInfoException ex) {
 
         }
@@ -60,7 +60,6 @@ public abstract class IOList
             setDate(date);
             setCategory(category);
             setCost(cost);
-            setNote("[NO_NOTE]");
         } catch (InvalidInfoException ex) {
 
         }

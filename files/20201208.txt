@@ -1,0 +1,5 @@
+2020/12/01 Dad 500 Dec
+2020/12/01 Mom 500 [NO_NOTE]
+2020/12/01 Education -120 book
+2020/12/06 Eating -80 [NO_NOTE]
+2020/12/08 Work 150 [NO_NOTE]

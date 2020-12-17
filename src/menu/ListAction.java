@@ -45,7 +45,7 @@ public class ListAction {
     public void addBtnAction(ComboBox incomeCombo, ComboBox expenseCombo, ToggleButton inExBtn,
             BinaryFileBalance balance, TextField balanceTf, TextField yearTf,
             TextField monthTf, TextField dayTf, TextField costTf,
-            TextField noteTf, TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol,
+            TextField noteTf, TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol, TableColumn noteCol,
             ArrayList<IOList> lists,
             Label errorLine) throws InvalidInfoException {
 
@@ -53,13 +53,13 @@ public class ListAction {
             String exSelected = (String) expenseCombo.getSelectionModel().getSelectedItem();
             IOList newEx = new ExpenseList();
             listAdd(incomeCombo, expenseCombo, inExBtn, balance, balanceTf, yearTf, monthTf,
-                    dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol,
+                    dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol, noteCol, 
                     lists, errorLine, newEx, exSelected);
         } else {
             String inSelected = (String) incomeCombo.getSelectionModel().getSelectedItem();
             IOList newIn = new IncomeList();
             listAdd(incomeCombo, expenseCombo, inExBtn, balance, balanceTf, yearTf, monthTf,
-                    dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol,
+                    dayTf, costTf, noteTf, right, dateCol, cateCol, amountCol, noteCol, 
                     lists, errorLine, newIn, inSelected);
         }
     }
@@ -95,7 +95,7 @@ public class ListAction {
     public void listAdd(ComboBox incomeCombo, ComboBox expenseCombo, ToggleButton inExBtn,
             BinaryFileBalance balance, TextField balanceTf, TextField yearTf,
             TextField monthTf, TextField dayTf, TextField costTf,
-            TextField noteTf, TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol,
+            TextField noteTf, TableView right, TableColumn dateCol, TableColumn cateCol, TableColumn amountCol, TableColumn noteCol,
             ArrayList<IOList> lists,
             Label errorLine, IOList list, String category) {
 
@@ -133,10 +133,9 @@ public class ListAction {
                 balance.value = Double.valueOf(balanceTf.getText()) + Double.parseDouble(list.getCost());
                 balanceTf.setText(String.valueOf(balance.value));
 
-                if (noteTf.getText().isEmpty()) {
-                    list.setCategory(category);
-                } else {
-                    list.setCategory(category);
+                list.setCategory(category);
+                
+                if (!noteTf.getText().isEmpty()) {
                     list.setNote(noteTf.getText());
                 }
 
@@ -145,6 +144,7 @@ public class ListAction {
                 dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
                 cateCol.setCellValueFactory(new PropertyValueFactory<>("category"));
                 amountCol.setCellValueFactory(new PropertyValueFactory<>("cost"));
+                noteCol.setCellValueFactory(new PropertyValueFactory<>("note"));
                 errorLine.setText("");
 
                 //reset input fields except date inputs
